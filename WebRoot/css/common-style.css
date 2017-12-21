@@ -1,0 +1,158 @@
+﻿/*ȫ������*/
+*{
+	font-family:"Microsoft YaHei";
+}
+ul{
+	list-style: none;
+}
+
+#top{
+	margin: auto;
+	min-width:1000px;
+	max-width: 1200px;
+	height: 110px;
+	border-top:#0080ca 9px solid;
+	border-bottom: #ececec 1px solid;
+	padding-top: 5px;
+}
+#chest{
+	margin: auto;
+
+	
+}
+#middle{
+	margin: auto;
+	min-width: 1000px;
+	max-width:1200px;
+	
+}
+
+/*ȫ�����ý���*/
+
+/*top��������*/
+/*logo����*/
+h1{
+	margin: 0px;
+}
+#top h1 a{
+	display: block; 
+    text-indent: -9999px;
+    overflow: hidden;
+    float:left;
+	background: url(../images/logos/xsfwzx.png);
+	width: 405px;
+	height: 75px;
+}
+/*��¼�������*/
+#login-btn{
+	float: right;
+	margin-top: 25px;
+	margin-right: 88px;
+	font-size: 16px;
+	color: #adadad;
+}
+#login-btn a{
+	font-size: 20px;
+	}
+#login-btn a:hover{
+	color: blue;
+}
+/*top�������ý���*/
+
+/*chest��������*/
+/*����������*/
+#nav-mystyle{
+	width: 1200px;
+	margin: auto;
+}
+#nav-mystyle a{
+	color:#337ab7; 
+	font-size: 20px;
+}
+#nav-mystyle a:hover{
+	color: #f0f0f0;
+	background: #0080ca;
+}
+/*�������·�banner*/
+.banner {
+	min-width: 1200px;
+	width: 100%;
+	text-align: center;
+    padding-top: 40px;
+    background: #fff url("../images/banners/noon.jpg") no-repeat center;
+    height: 160px;
+}
+
+#zxrs{
+	margin:auto;
+	margin-top:10px;
+	font-size: 16px;
+	color: #fff;
+}
+#rs,#week{
+	color: #0080ca;
+	font-size: 18px;
+
+}
+#time{
+	color: #fff;
+}
+/*chest�������ý���*/
+
+
+
+
+/*footer����*/
+
+#footer{
+
+	width: 100%;
+	background: #0080ca;
+	height: 180px;
+	color: #fff;
+	font-size: 13px;
+	padding-top: 10px;
+
+}
+#footer-all{
+	min-width: 1000px;
+	max-width: 1200px;
+	margin:auto;
+}
+/*�󲿷�*/
+#footer-left{
+	margin-top: 20px;
+	float: left;
+}
+#footer ul li{
+	float: left;
+	margin-right: 25px;
+
+}
+
+#footer-left ul li img{
+	height: 90px;
+	width: 90px;
+}
+
+
+/*�Ҳ���*/
+#footer-right{
+	float: right;
+	padding-right: 5px;
+	position: relative;
+}
+#footer a{
+color: #fff;
+}
+#beianhao,#fk,#zbsj,#lxdh{
+	color: #ffdb93;
+}
+#hzvtc{
+	margin-left: 250px;
+	position: absolute;
+	right: 270px;
+	top: 15px;
+}
+
+/*footer���ֽ���*/

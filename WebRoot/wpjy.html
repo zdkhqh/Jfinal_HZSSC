@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+
+<title>可借物品预览-杭职学生服务中心</title>
+<link rel="Shortcut Icon" href="#(cxt)/images/favicon.ico" />
+<link href="#(cxt)/css/bootstrap.min.css" rel="stylesheet">
+<link href="#(cxt)/css/common-style.css" rel="stylesheet">
+<link href="#(cxt)/css/loading.css" rel="stylesheet">
+<link href="#(cxt)/css/openpic.css" rel="stylesheet">
+</head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#middle {
+	padding: 30px 15px;
+	min-height: 400px;
+}
+
+.caption>p,.caption>h3 {
+	color: #2f86c9;
+}
+
+.thumbnail {
+	box-shadow: 3px 3px 5px #888888;
+	-moz-box-shadow: 3px 3px 5px #888888; /* 老的 Firefox */
+	-webkit-box-shadow: 3px 3px 5px #888888; /*webkit*/
+	transition: 0.3s;
+	-moz-transition: 0.3s; /* Firefox 4 */
+	-webkit-transition: 0.3s; /* Safari 和 Chrome */
+	-o-transition: 0.3s; /* Opera */
+}
+
+.thumbnail:hover {
+	position: relative;
+	top: -4px;
+	box-shadow: 4px 7px 5px #888888;
+	-moz-box-shadow: 4px 7px 5px #888888;
+	-webkit-box-shadow: 4px 7px 5px #888888;
+}
+
+.thumbnail>img {
+	height: 200px;
+	cursor:pointer;
+}
+
+#chest>ul>li:nth-child(3) a {
+	background-color: #0080ca;
+	color: #f0f0f0;
+}
+</style>
+<body>
+	#include("common/header.html")
+	<div id="middle">
+		<div class="row" id="row">
+		#for(x : list)
+			 <div class="col-xs-3">
+				<div class="thumbnail">
+					<img src="#(cxt)/upload/goods_pic/#(x.pic)" alt="#(x.name)" onclick="showMax('#(cxt)/upload/goods_pic/#(x.pic)')">
+					<div class="caption" align=center>
+						<h3>#(x.name)</h3>
+						<p>尺寸：#(x.size)</p>
+						<p>剩余数量：#(x.total)</p>
+					</div>
+				</div>
+			</div>
+ 		#end
+		</div>
+	</div>
+#include("common/footer.html")
+	<div id="Cover_Div" onClick="hideMax()"></div>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<!-- <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script> -->
+	<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+	<!-- <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+	<script src="#(cxt)/js/jquery.2.1.1.min.js"></script>
+	<script src="#(cxt)/js/bootstrap.min.js"></script>
+	<script src="#(cxt)/js/common-js.js"></script>
+	<script src="#(cxt)/js/openpic.js"></script>
+	<script src="#(cxt)/js/js-ajax.js"></script>
+	<script type="text/javascript">
+		/*window.onload = function() {
+			ajax({
+				type : "POST",
+				url : "ugoods_queryGoods",
+				dataType : "json",
+				success : function(msg) {
+					//console.log(msg.pageSupport.items.length);
+					//var len=msg.pageSupport.items.length;
+					var items = msg.pageSupport.items;
+					var row = document.querySelector("#row");
+					row.innerHTML = "";//清空
+					for ( var i in items) {
+					
+						var htmlStr = "<div class='col-xs-3'><div class='thumbnail'><img src='upload/goods_pic/"
+					+items[i].pic+"' alt='"+items[i].name+"' onclick=\"showMax('upload/goods_pic/"+items[i].pic+"')\"' ><div class='caption' align=center><h3>"
+								+ items[i].name
+								+ "</h3><p>尺寸："
+								+ items[i].size
+								+ "</p><p>剩余数量："
+								+ items[i].residu
+								+ "</p></div></div></div>";
+						row.innerHTML+=htmlStr;
+					}
+				},
+				error : function() {
+					console.log("error");
+					alert("抱歉，获取数据出错了！");
+				}
+			});
+		}*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,511 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+
+<title>场地申请-杭职学生服务中心</title>
+<link rel="Shortcut Icon" href="#(cxt)/images/favicon.ico" />
+<link href="#(cxt)/css/bootstrap.min.css" rel="stylesheet">
+<link href="#(cxt)/css/common-style.css" rel="stylesheet">
+<link href="#(cxt)/css/loading.css" rel="stylesheet">
+
+</head>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+}
+
+#middle {
+	width: 1200px;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.clear {
+	clear: both;
+	width: 0;
+	height: 0;
+}
+
+.m_left {
+	float: right;
+	width: 28%;
+	min-height: 500px;
+	margin-top: 60px;
+}
+
+.m_right {
+	float: left;
+	background: #f2ede7;
+	width: 70%;
+	min-height: 500px;
+}
+
+.m_left h2 {
+	text-align: center;
+	color: #2f86c9;
+	margin-bottom: 5px;
+}
+
+.m_left .shenqing {
+	text-align: center;
+	margin-top: 50px;
+}
+
+.m_left .shenqing a {
+	display: inline-block;
+	width: 60%;
+	height: 40px;
+	line-height: 40px;
+	text-decoration: none;
+	color: #fff;
+	background-color: rgb(41, 151, 200);
+	font-size: 19px;
+	border-radius: 2px;
+}
+
+#tb {
+	color: #2f86c9;
+	text-align: center;
+	border-spacing: 0px 15px;
+	width: 100%;
+	position: relative;
+}
+
+#tb thead tr {
+	height: 50px;
+	color: #fff;
+	background-color: #2f86c9;
+}
+
+#tb thead tr th {
+	text-align: center;
+	font-size: 16px;
+}
+
+#tb tbody tr {
+	background-color: #fff;
+	border-top: 10px solid #f2ede7;
+	border-bottom: 10px solid #f2ede7;
+}
+
+#tb thead tr th,#tb tbody tr td {
+	border-right: 1px solid #f2ede7;
+}
+
+#tb tbody tr:hover td {
+	background-color: #e0e0e0;
+}
+
+#tb tbody tr td:nth-child(1) {
+	text-align: right;
+}
+
+#tb tbody tr td:nth-child(2) {
+	background-color: #f8931f;
+	color: #fff;
+}
+
+#tb tbody tr td:nth-child(3) {
+	font-size: 20px;
+}
+
+#selplace {
+	height: 118px;
+	background-color: #fff;
+}
+
+.currenDate {
+	text-align: center;
+	font-weight: 900;
+	color: #0272bc;
+	font-size: 30px;
+}
+
+#spanyear {
+	background-color: #0071bd;
+	color: #fff;
+	font-size: 20px;
+	padding: 3px 8px;
+	border-radius: 3px;
+	vertical-align: top;
+	margin-left: 5px;
+}
+
+.selector {
+	margin-top: 8px;
+	margin-bottom: 10px;
+}
+
+.selector span {
+	background-color: #c4e1ff;
+	color: #fff;
+	font-size: 26px;
+	padding: 5px 8px;
+	border-radius: 1px;
+	cursor: pointer;
+	margin-right: -5px;
+}
+
+.selector .choose {
+	background-color: #0071bd;
+}
+
+.a_mid {
+	padding: 8px;
+	line-height: 30px;
+	text-decoration: none;
+	color: #fff;
+	background-color: rgb(41, 151, 200);
+	font-size: 19px;
+	border-radius: 2px;
+	margin-right: 15px;
+	cursor: pointer;
+}
+
+#chest>ul>li:nth-child(2) a {
+	background-color: #0080ca;
+	color: #f0f0f0;
+}
+</style>
+<body>
+
+	#include("common/header.html")
+
+	<div id="middle">
+		<div class="m_left">
+			<h2>日历</h2>
+			<iframe id="iframe" src="#(cxt)/iframe.html"
+				style="width:100%;height: 330px;" scrolling=no frameborder=0>您的浏览器不支持iframe</iframe>
+			<div class="shenqing">
+			#if(stuName != null)
+			<a href="#(cxt)/#applySpace" data-toggle="modal">我要申请使用场地</a>
+			#end
+				#if(stuName == null)
+					<a href="#(cxt)/#myModal" style="width:80%;" data-toggle="modal">我要申请使用场地(需先登录)</a>
+				#end
+			</div>
+		</div>
+		<div class="m_right">
+			<div id="selplace">
+				<div class="currenDate">
+					<span id="spanmonth">00</span>月<span id="spanday">00</span>日<span
+						id="spanyear">0000</span>
+				</div>
+				<div style="color:#0272bc;">选择学生活动中心场地：</div>
+				<div class="selector">
+					<span class="choose">108</span> <span>215</span> <span>226</span> <span>一楼大厅</span>
+				</div>
+				
+			</div>
+
+			<table id="tb">
+				<thead>
+					<tr>
+						<th style="width: 12%;">使用时间</th>
+						<th style="width: 10%;">活动时长</th>
+						<th style="width: 20%;">活动名称</th>
+						<th style="width: 20%;">活动单位</th>
+						<th style="width: 20%;">活动申请人及联系电话</th>
+						<th style="width: 18%;">活动申请时间</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+
+
+			</table>
+		</div>
+		<div class="clear"></div>
+		<div style="margin:10px;">
+			<form name="queryForm" id="queryForm" onsubmit="return false">
+				<input type="hidden" name="day" id="f_day" /> <input type="hidden"
+					name="space" id="f_space" />
+			</form>
+			<div class="page-bar" style="position:relative;">
+				<a href="javascript:page_navB(${param.formId},0);"
+					class="btn btn-primary disabled" id="y_today">返回今日</a> <a
+					class="btn btn-primary disabled" id="y_pre">上一天</a> <a
+					class="btn btn-primary disabled" id="y_aft">下一天</a> &nbsp;&nbsp;
+				&nbsp;&nbsp;当前表所在日期是 <span style="color:#337ab7;" id="tbday"></span>
+			<div class="input-group input-group-lg" style="position:absolute;left:500px;top:-10px;width:50%;">
+			<span class="input-group-addon" id="sizing-addon1"
+				style="background-color: #2494c6;color: #fff;font-weight: 500;">选择日期</span>
+			<input placeholder="请选择日期" id="queryDay" style="width:30%;" value=""
+				class="form-control"
+				onclick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',maxDate:'%y-%M-{%d+15}'})" />
+				<a href="javascript:queryByDay();" class="btn btn-info btn-lg" style="border-bottom-left-radius:0;border-top-left-radius:0">查询</a>
+		</div>
+			</div>
+			
+		</div>
+
+
+	</div>
+
+		#include("common/footer.html")
+
+	<!-- apply space start  /.modal-content -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="applySpace">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">我要申请使用场地</h4>
+				</div>
+				<div class="modal-body">
+					<form action="#(cxt)/cdsq/applySpace" method="post"
+						id="applyForm">
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;">活动名称</span>
+							<input type="text" id="spaceName" name="activity.name"
+								class="form-control" placeholder="请输入活动名称">
+						</div>
+						<br>
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;">活动单位</span>
+							<input type="text" id="spaceCompany" name="activity.company"
+								class="form-control" placeholder='请输入活动方的组织或单位名称'>
+						</div>
+						<br>
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;">场地选择</span>
+							<div class="radio" style="margin-left:2%;">
+								<label> <input type="radio" name="activity.space"
+									id="optionsRadios1" value="1"> 108(多功能厅)
+								</label> <label> <input type="radio" name="activity.space"
+									id="optionsRadios2" value="2"> 215(70人会议室)
+								</label> <label> <input type="radio" name="activity.space"
+									id="optionsRadios3" value="3"> 226(150人会议室)
+								</label> <label> <input type="radio" name="activity.space"
+									id="optionsRadios4" value="4"> 一楼大厅
+								</label>
+							</div>
+						</div>
+						<br>
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;">申
+								请 人</span> <input type="text" class="form-control"
+								value="#(stuName??)" readonly=true
+								style="width:30%;">
+								<input type="hidden" value="#(stuId??)" name="activity.stu_id">
+						</div>
+						<br>
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;padding:0 3px;">选择日期</span>
+							<input placeholder="请选择日期" id="dateTime"
+								class="form-control"
+								onclick="WdatePicker({skin:'whyGreen',dateFmt:'yyyy-MM-dd',minDate:'%y-%M-%d',maxDate:'%y-%M-{%d+15}'})" />
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;padding:0 3px;">开始时间</span>
+							<input placeholder="请选择开始时间" id="startDate"
+								class="form-control"
+								onclick="WdatePicker({dateFmt:'HH:mm:00',minDate:'8:00:00',maxDate:'21:30:00'})" />
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;padding:0 3px;">结束时间</span>
+							<input id="endDate" placeholder="请选择结束时间"
+								class="form-control"
+								onclick="WdatePicker({dateFmt:'HH:mm:00',minDate:'8:00:00',maxDate:'21:30:00'})" />
+						</div>
+						<input type="hidden" name="startDate" id="isd" /> <input
+							type="hidden" name="endDate" id="ied" /> <br>
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;">联系电话</span>
+							<input type="text" class="form-control" name="activity.phone"
+								onkeyup="this.value=this.value.replace(/[^\d]/g,'') "
+								onafterpaste="this.value=this.value.replace(/[^\d]/g,'') "
+								oninput="if(value.length>11)value=value.slice(0,11)" id="phone"
+								placeholder='请输入活动负责人或者申请人的手机号码，确保可以联系上的联系方式' />
+						</div>
+						<br>
+						<div class="input-group">
+							<span class="input-group-addon" id="sizing-addon1"
+								style="background-color: #2494c6;color: #fff;font-weight: 500;">图片验证</span>
+							<input type="file" style="width:45%;" name="upload"
+								class="form-control" id="uploadPic" onChange="changeFile(this)" />
+						</div>
+						<br>
+						<div class="panel panel-danger">
+							<div class="panel-heading">
+								<h3 class="panel-title">请上传活动负责人或者申请人与活动负责老师的合照，如下：</h3>
+							</div>
+						</div>
+						<img src="#(cxt)/images/hezhao.jpg" id="checkPic" style="width:50%;" />
+						<br> <br>
+					</form>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							onclick="submitApply()">提交申请</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+		<!-- apply space end -->
+		#if(returnMsg !=null && returnMsg == 1)
+			<script>
+				window.onload = function() {
+					alert("申请提交成功！请等待管理员审核！");
+					window.location.href = "cdsq/userShow";
+				}
+			</script>
+		#end
+
+<!-- 		<c:if test="${returnMsg eq -1}">
+			<script>
+				window.onload = function() {
+					alert("未登录无法申请场地使用!请先登录！");
+				}
+			</script>
+		</c:if>
+		<c:if test="${returnMsg eq 0}">
+			<script>
+				window.onload = function() {
+					alert("申请提交失败！");
+				}
+			</script>
+		</c:if>
+		<c:if test="${returnMsg eq 1}">
+			<script>
+				window.onload = function() {
+					alert("申请提交成功！请等待管理员审核！");
+					window.location.href = "cdsq.jsp";
+				}
+			</script>
+		</c:if> -->
+
+			#if(returnMsg == 1)
+				<script>
+				window.onload = function() {
+					alert("申请提交成功！请等待管理员审核！");
+					//window.location.href = "cdsq.jsp";
+				}
+			</script>
+			#end
+
+
+		<script src="#(cxt)/js/jquery.2.1.1.min.js"></script>
+		<script src="#(cxt)/js/bootstrap.min.js"></script>
+		<script src="#(cxt)/js/common-js.js"></script>
+		<script src="#(cxt)/js/My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript">
+			var selectorSpanAll = document.querySelectorAll(".selector span");
+			var len = selectorSpanAll.length;
+
+			//页面加载时自动点击获取数据
+			$(document).ready(function() {
+				selectorSpanAll[0].click();
+			});
+
+			for ( var i = 0; i < len; i++) {//循环绑定事件
+				(function(i) {
+					selectorSpanAll[i].onclick = function() {
+						for ( var j = 0; j < len; j++) {
+							selectorSpanAll[j].setAttribute("class", "");
+						}
+						selectorSpanAll[i].setAttribute("class", "choose");
+						ajax("space=" + (i + 1));
+					}
+				})(i);
+			}
+			function ajax(str) {
+				//console.log($('#queryForm').serialize());
+				$
+						.ajax({
+							url : "#(cxt)/cdsq/cdsqList?" + str,
+							type : "POST",
+							success : function(data) {
+								$('#tbday').html(data.nextDay);//表格所在日期
+								$('#queryDay').val(data.nextDay);//表格所在日期
+								$('#f_day').val(data.day);//day
+								$('#f_space').val(data.space);//space场地
+								if (data.day >= 0 && data.day <= 14) {
+									$('#f_day').val($('#f_day').val()*1+1);
+									$('#y_aft').removeClass("disabled");
+									$('#y_aft').attr(
+											"href",
+											"javascript:ajax('"+ $('#queryForm').serialize() + "');");
+								}else if(data.day>14)$('#y_aft').addClass("disabled");
+								if (data.day > 0) {
+									$('#f_day').val($('#f_day').val()*1-2);
+									$('#y_pre').removeClass("disabled");
+									$('#y_pre').attr(
+											"href",
+											"javascript:ajax('"+ $('#queryForm').serialize() + "');");
+								}else if(data.day<=0)$('#y_pre').addClass("disabled");
+								if(data.day!=0){
+									$('#y_today').removeClass("disabled");
+									$('#y_today').attr(
+											"href",
+											"javascript:ajax('space="+ $('#f_space').val() + "&day=0');");
+								}
+								else $('#y_today').addClass("disabled");
+								
+								var d = data.nextDay.split("-");
+								$('#spanmonth').html(d[1]);
+								$('#spanday').html(d[2]);
+								$('#spanyear').html(d[0]);//修改头部日期
+								updateNode(data.items.list);
+								//console.log(data.items.list.length);
+							},
+							error : function(err) {
+								alert("数据获取失败！");
+							}
+						});
+			}
+			function updateNode(tbdata) {
+				var len = tbdata.length;
+				var tbody = document.querySelector("#tb tbody");
+				tbody.innerHTML = "";
+				if (len < 1) {
+					var tr = document.createElement('tr'); //创建元素
+					tr.innerHTML = "<td colspan='6' style='height:100px;font-size:22px;text-align:center;color:red;'>这一天该活动场地暂时无人申请</td>";
+					tbody.appendChild(tr);
+					return;
+				}
+				for ( var i = 0; i < len; i++) {
+					var s = tbdata[i].start_time.replace('T', ' ');
+					var e = tbdata[i].end_time.replace('T', ' ');
+					var h = getHour(s, e);
+					var c = tbdata[i].create_time.replace('T', ' ');
+					var tr = document.createElement('tr'); //创建元素
+					tr.innerHTML = "<td><p>"
+							+ s.substring(s.length - 8, s.length)
+							+ "-</p><p style='height: " + (h * 10)
+							+ "px;'></p><p>"
+							+ e.substring(e.length - 8, e.length)
+							+ "-</p></td>" + "<td><strong>" + h
+							+ "h</strong></td>" + "<td>" + tbdata[i].name
+							+ "</td>" + "<td>" + tbdata[i].company + "</td>"
+							+ "<td>" + tbdata[i].name + "<br>（" + tbdata[i].phone
+							+ "）</td>" + "<td>" + c + "</td>";
+					tbody.appendChild(tr);
+				}
+			}
+			function queryByDay(){
+				ajax("space="+ $('#f_space').val()+"&nextDay="+$('#queryDay').val());
+			}
+			function getHour(s1, s2) {//计算小时差
+				s1 = new Date(s1.replace(/-/g, '/'));
+				s2 = new Date(s2.replace(/-/g, '/'));
+				var ms = Math.abs(s1.getTime() - s2.getTime());
+				return (ms / 1000 / 60 / 60).toFixed(1);
+			}
+		</script>
+</body>
+</html>

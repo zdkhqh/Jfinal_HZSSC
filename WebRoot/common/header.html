@@ -1,0 +1,128 @@
+<div id="top">
+	<h1 style="margin-top:10px;">
+		<a href="#(cxt)/" title="杭州职业技术学院学生服务中心">杭职学生服务中心</a>
+	</h1>
+	<div id="login-btn">
+		<div id="welcome">
+			杭职学生服务中心欢迎您
+			<button type="button" class="btn btn-primary btn-lg"
+				data-toggle="modal" data-target="#myModal"
+				style="height: 28px;padding-top: 1px;border-radius:3px;background-color: #2997c8;border-color: #2997c8;">
+				登录</button>
+		</div>
+
+		<div class="loading" style="display: none;">
+			<div class="spanblock">
+				<span></span> <span></span> <span></span> <span></span> <span></span>
+				<span></span>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="chest">
+	<ul class="nav nav-pills" id="nav-mystyle">
+		<li role="presentation" class="dropdown"><a
+			class="dropdown-toggle" role="button" aria-haspopup="true"
+			target='_top' href="#(cxt)/index" title="杭职学生服务中心网站首页"> 网站首页 </a></li>
+		<li role="presentation" class="dropdown"><a
+			class="dropdown-toggle" role="button" aria-haspopup="true"
+			target='_top' href="#(cxt)/cdsq/userShow" title="场地申请  日历查看 "> 场地申请
+		</a></li>
+		<li role="presentation" class="dropdown"><a
+			class="dropdown-toggle" role="button" aria-haspopup="true"
+			target='_top' href="#(cxt)/wpjy/index" title="可借物品查看"> 物品借用 </a></li>
+		<!-- <li role="presentation" class="dropdown"><a
+			class="dropdown-toggle" role="button" aria-haspopup="true"
+			target='_top' href="#(cxt)/swzl.html" title="失物招领 失(拾)物发布"> 失物招领 </a></li>
+		<li role="presentation" class="dropdown" title="学生证、团员证等补办"><a
+			class="dropdown-toggle" data-toggle="dropdown" role="button"
+			aria-haspopup="true" aria-expanded="false"> 补办相关<span
+				class="caret"></span>
+		</a>
+			<ul class="dropdown-menu">
+
+				<li role="presentation" class="dropdown"><a
+					class="dropdown-toggle" role="button" aria-haspopup="true"
+					target='_top' href="#(cxt)/xszxg.html"> 学生证补办 </a></li>
+				<li role="presentation" class="dropdown"><a
+					class="dropdown-toggle" role="button" aria-haspopup="true"
+					target='_top' href="#(cxt)/tyzxg.html"> 团员证补办 </a></li>
+			</ul></li>
+		<li role="presentation" class="dropdown" title="医保理赔相关"><a
+			class="dropdown-toggle" data-toggle="dropdown" role="button"
+			aria-haspopup="true" aria-expanded="false"> 医保相关<span
+				class="caret"></span>
+		</a>
+			<ul class="dropdown-menu">
+
+				<li role="presentation" class="dropdown"><a
+					class="dropdown-toggle" role="button" aria-haspopup="true"
+					target='_top' href="#(cxt)/huaxia.html"> 华夏保险 </a></li>
+				<li role="presentation" class="dropdown"><a
+					class="dropdown-toggle" role="button" aria-haspopup="true"
+					target='_top' href="#(cxt)/pingan.html"> 平安保险 </a></li>
+			</ul></li>
+		<li role="presentation" class="dropdown" title="资料下载"><a
+			class="dropdown-toggle" role="button" aria-haspopup="true"
+			target='_top' href="#(cxt)/zlxz.html"> 资料下载 </a></li> -->
+	</ul>
+	<div class="banner">
+
+		<div id="zxrs">
+			当前在线人数：<span id="rs">00</span>
+		</div>
+		<div id="time">
+			0000年00月0日(周日)，第 <span id="week">0</span> 周
+		</div>
+	</div>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title" id="myModalLabel">登录</h4>
+			</div>
+			<form style="margin:0;" onSubmit="return false">
+
+				<div class="modal-body">
+
+
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon" id="sizing-addon1"
+							style="background-color: #2494c6;color: #fff;font-weight: 500;">学号</span>
+						<input type="text" onkeyup="this.value=this.value.replace(/[^\d]/g,'') " onafterpaste="this.value=this.value.replace(/[^\d]/g,'') " id="username" name="username" class="form-control"
+							placeholder="请输入学号" aria-describedby="sizing-addon1"
+							required="required" oninput="if(value.length>10)value=value.slice(0,10)" value="1511102016">
+					</div>
+					<br>
+					<div class="input-group input-group-lg">
+						<span class="input-group-addon" id="sizing-addon1"
+							style="background-color: #2494c6;color: #fff;font-weight: 500;">密码</span>
+						<input type="password" id="password" class="form-control"
+							placeholder='请输入密码,"stu"+学号（如：stu1234567890）' aria-describedby="sizing-addon1"
+							required="required" value="stu1511102016">
+					</div>
+
+
+				</div>
+				<div class="modal-footer">
+					<input type="submit" id="login" class="btn btn-primary btn-lg"
+						value="登录" />
+					<button type="button" id="close" class="btn btn-default btn-lg"
+						data-dismiss="modal">取消</button>
+				
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>

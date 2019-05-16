@@ -1,4 +1,4 @@
-jdbcUrl = jdbc:mysql://localhost:3306/hzssc?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull
+jdbcUrl = jdbc:mysql://localhost:3306/hzssc?serverTimezone=GMT%2b8&autoReconnect=true&failOverReadOnly=false&useUnicode=true&characterEncoding=UTF-8
 user = root
-password =643155
+password =tpson102304
 devMode = true
